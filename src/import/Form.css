@@ -1,0 +1,31 @@
+.form-container {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.register-form {
+  display: flex;
+  background-color: rgb(180, 252, 234);
+  flex-direction: column;
+  padding: 5px;
+}
+
+.form-field {
+  margin: 5px;
+  padding: 3px;
+}
+
+header{
+  background-color: rgb(195, 170, 218);
+  text-align: center;
+  padding: 5px;
+}
+
+
+.register-form p {
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  color: #f00e0e;
+}
