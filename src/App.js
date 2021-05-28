@@ -1,7 +1,6 @@
 
 import React, { useEffect, useState } from "react";
-// import Login from './imported/Login';
-
+import Form from "./import/Form"
 function App() {
 
 // useEffect(() =>{
@@ -25,6 +24,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1> TIX App</h1>
+        <Form/>
       </header>
     </div>
   );
