@@ -2,13 +2,20 @@ import { useState, useEffect, useRef } from "react";
 
 const useForm = (callback, validate) => {
   const [values, setValues] = useState({
-    loading: true,
-    firstName: "",
-    lastName: "",
+    // loading: true,
+    // firstName: "",
+    // lastName: "",
+    // email: "",
+    // phoneNumber: "",
+    // supervisor: "",
+    // checked: "",
+
     email: "",
-    phoneNumber: "",
-    supervisor: "",
-    checked: "",
+    password: "",
+    firstname: "",
+    lastname: "",
+    is_agent: "",
+    is_admin: "",
   });
 
   const [errors, setErrors] = useState({});
@@ -40,7 +47,7 @@ const useForm = (callback, validate) => {
 
   const handleComplete = (values) => {
     console.log("values", values)
-    fetch("https://6099a4760f5a13001721985c.mockapi.io/api/submit", {
+    fetch("http://localhost:3000/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -36,9 +36,9 @@ export default function validateInfo(values) {
     }
   }
 
-  if (!values.supervisor) {
-    errors.supervisor = " Supervisor is required";
-  }
+  // if (!values.supervisor) {
+  //   errors.supervisor = " Supervisor is required";
+  // }
 
   return errors;
 }

@@ -9,17 +9,17 @@ const FormSubmit = ({ submitForm }) => {
     validate
   );
 
-  const [supervisor, setSupervisor] = useState({
-    supList: [],
-  });
+  // const [supervisor, setSupervisor] = useState({
+  //   supList: [],
+  // });
 
-  useEffect(() => {
-    fetch("https://6099a4760f5a13001721985c.mockapi.io/api/supervisors")
-      .then((response) => response.json())
-      .then((data) => {
-        setSupervisor({ supList: data.results });
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch("https://6099a4760f5a13001721985c.mockapi.io/api/supervisors")
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setSupervisor({ supList: data.results });
+  //     });
+  // }, []);
 
   return (
     <div>
@@ -111,11 +111,10 @@ const FormSubmit = ({ submitForm }) => {
 
           </div>
 
-          <div>
+          {/* <div>
             <label htmlFor="supervisorDropdown" className="form-label">
               Supervisor
             </label>
-            {/* supervisor.supList */}
             <select id="supervisor" name="supervisor" onChange={handleChange}>
               <option disabled selected>
                 -- Select --
@@ -129,7 +128,8 @@ const FormSubmit = ({ submitForm }) => {
               })}
             </select>
             {errors.supervisor && <p>{errors.supervisor}</p>}
-          </div>
+          </div> */}
+
 
           <div>
             <button className="form-field" type="submit">
