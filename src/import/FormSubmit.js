@@ -27,34 +27,34 @@ const FormSubmit = ({ submitForm }) => {
         <header>Notification Form</header>
         <form className="register-form" onSubmit={handleSubmit} noValidate>
           <div>
-            <label htmlFor="firstName" className="form-label">
+            <label htmlFor="firstname" className="form-label">
               First Name
             </label>
             <input
-              id="firstName"
+              id="firstname"
               className="form-field"
               placeholder="Enter your First Name"
               type="text"
-              name="firstName"
-              value={values.firstName}
+              name="firstname"
+              value={values.firstname}
               onChange={handleChange}
             />
-            {errors.firstName && <p>{errors.firstName}</p>}
+            {errors.firstname && <p>{errors.firstname}</p>}
           </div>
           <div>
-            <label htmlFor="lastName" className="form-label">
+            <label htmlFor="lastname" className="form-label">
               Last Name
             </label>
             <input
-              id="lastName"
+              id="lastname"
               className="form-field"
               placeholder="Enter your Last Name"
               type="text"
-              name="lastName"
-              value={values.lastName}
+              name="lastname"
+              value={values.lastname}
               onChange={handleChange}
             />
-            {errors.lastName && <p>{errors.lastName}</p>}
+            {errors.lastname && <p>{errors.lastname}</p>}
           </div>
           {errors.checked && <p>{errors.checked}</p>}
 
@@ -85,8 +85,27 @@ const FormSubmit = ({ submitForm }) => {
             {errors.email && <p>{errors.email}</p>}
           </div>
           <div>
+            <label htmlFor="password">
+              {" "}
+              Password{" "}
+            </label>
             <input
-              id="phoneNumber-checkbox"
+              id="password"
+              type="password"
+              value={values.password}
+              onChange={handleChange}
+              className="form-field"
+              placeholder="Password"
+              name="password"
+            />
+            {errors.password && <p>{errors.password}</p>}
+          </div>
+
+          {/* //validate password field*/}
+{/*
+          <div>
+            <input
+              id="email-checkbox"
               type="radio"
               value="phone"
               onChange={handleChange}
@@ -94,22 +113,22 @@ const FormSubmit = ({ submitForm }) => {
               placeholder="Phone Number"
               name="checked"
             />
-            <label htmlFor="phoneNumber">
+            <label htmlFor="email">
               {" "}
               Phone Number{" "}
             </label>
             <input
-              id="phoneNumber"
+              id="email"
               className="form-field"
               placeholder="(XXX) XXX - XXXX"
-              name="phoneNumber"
-              value={values.phoneNumber}
+              name="email"
+              value={values.email}
               onChange={handleChange}
             />
-            {errors.phoneNumber && <p>{errors.phoneNumber}</p>}
+            {errors.email && <p>{errors.email}</p>}
             {errors.selection && <p>{errors.selection}</p>}
 
-          </div>
+          </div> */}
 
           {/* <div>
             <label htmlFor="supervisorDropdown" className="form-label">

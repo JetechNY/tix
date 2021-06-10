@@ -3,16 +3,16 @@ export default function validateInfo(values) {
 
   const regex = /^[a-zA-Z]+$/;
 
-  if (!values.firstName.trim()) {
-    errors.firstName = " First name is required";
-  } else if (!regex.test(values.firstName.trim())) {
-    errors.firstName = "Enter a valid first name";
+  if (!values.firstname.trim()) {
+    errors.firstname = " First name is required";
+  } else if (!regex.test(values.firstname.trim())) {
+    errors.firstname = "Enter a valid first name";
   }
 
-  if (!values.lastName.trim()) {
-    errors.lastName = " Last name is required";
-  } else if (!regex.test(values.lastName.trim())) {
-    errors.lastName = "Enter a valid last name";
+  if (!values.lastname.trim()) {
+    errors.lastname = " Last name is required";
+  } else if (!regex.test(values.lastname.trim())) {
+    errors.lastname = "Enter a valid last name";
   }
 
   if (!values.checked) {
@@ -26,6 +26,14 @@ export default function validateInfo(values) {
       errors.email = "Email address is invalid";
     }
   }
+  //Fix Password validation
+  // if (values.checked === "password") {
+  //   if (!values.password) {
+  //     errors.email = "Please enter a valid Password";
+  //   } else if (!/\S+@\S+\.\S+/.test(values.password)) {
+  //     errors.email = "Password is invalid";
+  //   }
+  // }
 
   if (values.checked === "phone") {
     var pattern = new RegExp(/^[0-9\b]+$/);
