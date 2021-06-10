@@ -24,7 +24,7 @@ const FormSubmit = ({ submitForm }) => {
   return (
     <div>
       <div className="form-content">
-        <header>Notification Form</header>
+        <header>Sign Up Form</header>
         <form className="register-form" onSubmit={handleSubmit} noValidate>
           <div>
             <label htmlFor="firstname" className="form-label">
