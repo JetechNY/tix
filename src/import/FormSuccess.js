@@ -3,7 +3,7 @@ import "./Form.css";
 
 const FormSuccess = () => {
   function refreshPage() {
-    window.location.reload(false);
+    window.location(false);
   }
 
   return (

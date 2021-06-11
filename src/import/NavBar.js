@@ -3,8 +3,13 @@ import React from "react";
 import { NavLink, useHistory } from "react-router-dom";
 // import Dropdown from "./Dropdown"
 
-function NavBar() {
+function NavBar({setCurrentUser}) {
   const history = useHistory();
+
+  const logout =()=> {
+    setCurrentUser(null);
+    history.push('/login');
+  }
 
   return (
     <div className="navbar" id="navbar">
@@ -18,6 +23,8 @@ function NavBar() {
             <NavLink to="/tickets">Tickets</NavLink>
             <br></br>
             <NavLink to="/signup">Sign Up</NavLink>
+            <br></br>
+            <button className="logout" onClick={logout}>Log Out</button>
           </div>
         </header>
       </span>

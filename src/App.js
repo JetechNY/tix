@@ -7,26 +7,12 @@ import Tickets from "./import/Tickets";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
-  // useEffect(() =>{
-  //   fetch('http://localhost:52671/users', {
-  //     method: 'GET',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //   //   body: JSON.stringify(data),
-  //   // })
-  //   // .then(response => response.json())
-  //   // .then(data => {
-  //   //   console.log('Success:', data);
-  //   // })
-  //   // .catch((error) => {
-  //   //   console.error('Error:', error);
-  //   })
-  // }, [])
+
+  const [currentUser, setCurrentUser] = useState(null);
 
   return (
     <Router>
-      <NavBar />
+      <NavBar setCurrentUser={setCurrentUser}/>
       <div className="App">
         <header className="App-header">
           <h1>TIX App</h1>
@@ -35,7 +21,7 @@ function App() {
               <Form />
             </Route>
             <Route path="/login">
-              <Login />
+              <Login currentUser={currentUser} setCurrentUser={setCurrentUser}/>
             </Route>
             <Route exact path="/">
               <Home />

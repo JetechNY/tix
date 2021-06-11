@@ -1,26 +1,53 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import validate from "./validateInfo";
 import useForm from "./useForm";
 import "./Form.css";
 
 //work on formdata - form submit on login & login route
-const FormSubmit = ({ submitForm }) => {
-  const { handleChange, handleSubmit, values, errors } = useForm(
-    submitForm,
-    validate
-  );
+const Login = ({ submitForm, currentUser, setCurrentUser }) => {
+  const [values, setValues] = useState({
+    email: "",
+    password: "",
+  });
 
-  // const [supervisor, setSupervisor] = useState({
-  //   supList: [],
-  // });
+  const [errors, setErrors] = useState({});
+  const history = useHistory();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch("http://localhost:3000/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(values),
+    })
+      .then((r) => r.json())
+      .then((userObj) => {
+        if (userObj.errors) {
+          setErrors(userObj.errors);
+        } else {
+          setCurrentUser(userObj)
+          history.push(`/`);
+        }
+      });
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setValues({
+      ...values,
+      [name]: value,
+    });
+    // setErrors(validate(values));//onChange very aggressive
+  };
 
   // useEffect(() => {
-  //   fetch("https://6099a4760f5a13001721985c.mockapi.io/api/supervisors")
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setSupervisor({ supList: data.results });
-  //     });
-  // }, []);
+  //   if (Object.keys(errors).length === 0 && isSubmitting) {
+  //     callback();
+  //   }
+  // }, [errors]);
 
   return (
     <div>
@@ -53,10 +80,7 @@ const FormSubmit = ({ submitForm }) => {
             />
             {errors.password && <p>{errors.password}</p>}
           </div>
-
           {/* //validate password field*/}
-
-
           <div>
             <button className="form-field" type="submit">
               Submit
@@ -68,4 +92,4 @@ const FormSubmit = ({ submitForm }) => {
   );
 };
 
-export default FormSubmit;
+export default Login;
