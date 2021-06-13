@@ -4,7 +4,7 @@ const Home = () => {
   return (
     <div>
       <h1>
-      Welcome to the Tix App
+      Welcome to the Tix App. Please Sign In
       </h1>
     </div>
   )
@@ -12,5 +12,5 @@ const Home = () => {
 
 export default Home
 
-//work on home page .. forms, 
+//work on home page .. forms,
 //tickets
