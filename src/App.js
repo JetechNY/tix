@@ -4,6 +4,7 @@ import Login from "./import/Login";
 import NavBar from "./import/NavBar";
 import Home from "./import/Home";
 import Tickets from "./import/Tickets";
+import NewTicket from "./import/NewTicket";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -28,6 +29,9 @@ function App() {
             </Route>
             <Route exact path="/tickets">
               <Tickets />
+            </Route>
+            <Route exact path="/newtix">
+              <NewTicket />
             </Route>
           </Switch>
         </header>

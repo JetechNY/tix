@@ -20,7 +20,9 @@ function NavBar({setCurrentUser}) {
             <br></br>
             <NavLink to="/">Home</NavLink>
             <br></br>
-            <NavLink to="/tickets">Tickets</NavLink>
+            <NavLink to="/tickets">Ticket List</NavLink>
+            <br></br>
+            <NavLink to="/newtix">Create New Ticket</NavLink>
             <br></br>
             <NavLink to="/signup">Sign Up</NavLink>
             <br></br>
