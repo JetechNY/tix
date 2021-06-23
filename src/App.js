@@ -24,7 +24,7 @@ function App() {
               <Login currentUser={currentUser} setCurrentUser={setCurrentUser}/>
             </Route>
             <Route exact path="/">
-              <Home />
+              <Home currentUser={currentUser}/>
             </Route>
             <Route exact path="/tickets">
               <Tickets />
