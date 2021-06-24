@@ -68,6 +68,7 @@ const NewTicket = ({ submitForm }) => {
             </label>
           </div>
           <br></br>
+
           <div>
             <div class="container-fluid">
               <div class="dropdown">
@@ -89,6 +90,7 @@ const NewTicket = ({ submitForm }) => {
               </div>
             </div>
           </div>
+
           <br></br>
           <div>
             <button className="form-field" type="submit">
