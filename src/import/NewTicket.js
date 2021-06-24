@@ -67,7 +67,6 @@ const NewTicket = ({ submitForm }) => {
               Assigned To
             </label>
           </div>
-
           <div>
             <label htmlFor="Sub Category" className="form-label">
               Sub Category
