@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
+import { Dropdown } from "semantic-ui-react";
 
 import "./Form.css";
 
@@ -62,16 +63,35 @@ const NewTicket = ({ submitForm }) => {
               onChange={handleChange}
             />
           </div>
+          <br></br>
           <div>
             <label htmlFor="Assigned To" className="form-label">
               Assigned To
             </label>
           </div>
+          <br></br>
           <div>
-            <label htmlFor="Sub Category" className="form-label">
+            {/* <label htmlFor="Sub Category" className="form-label">
               Sub Category
-            </label>
+            </label> */}
+
+<Dropdown text='File'>
+    <Dropdown.Menu>
+      <Dropdown.Item text='New' />
+      <Dropdown.Item text='Open...' description='ctrl + o' />
+      <Dropdown.Item text='Save as...' description='ctrl + s' />
+      <Dropdown.Item text='Rename' description='ctrl + r' />
+      <Dropdown.Item text='Make a copy' />
+      <Dropdown.Item icon='folder' text='Move to folder' />
+      <Dropdown.Item icon='trash' text='Move to trash' />
+      <Dropdown.Divider />
+      <Dropdown.Item text='Download As...' />
+      <Dropdown.Item text='Publish To Web' />
+      <Dropdown.Item text='E-mail Collaborators' />
+    </Dropdown.Menu>
+  </Dropdown>
           </div>
+          <br></br>
           <div>
             <button className="form-field" type="submit">
               Submit
@@ -84,3 +104,4 @@ const NewTicket = ({ submitForm }) => {
 };
 
 export default NewTicket;
+

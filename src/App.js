@@ -7,6 +7,7 @@ import TicketsList from "./import/TicketsList";
 import NewTicket from "./import/NewTicket";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [tickets, setTickets] = useState([]);

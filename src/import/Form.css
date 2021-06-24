@@ -5,6 +5,10 @@
   flex-direction: column;
 }
 
+.form-content{
+  background-color: #0eb0f0;
+}
+
 .register-form {
   display: flex;
   background-color: rgb(180, 252, 234);
