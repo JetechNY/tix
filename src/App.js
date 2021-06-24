@@ -3,17 +3,25 @@ import Form from "./import/Form";
 import Login from "./import/Login";
 import NavBar from "./import/NavBar";
 import Home from "./import/Home";
-import Tickets from "./import/Tickets";
+import TicketsList from "./import/TicketsList";
 import NewTicket from "./import/NewTicket";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
-
   const [currentUser, setCurrentUser] = useState(null);
+  const [tickets, setTickets] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/tickets")
+      .then((r) => r.json())
+      .then((ticketsArray) => {
+        setTickets(ticketsArray);
+      });
+  }, []);
 
   return (
     <Router>
-      <NavBar setCurrentUser={setCurrentUser}/>
+      <NavBar setCurrentUser={setCurrentUser} />
       <div className="App">
         <header className="App-header">
           <h1>TIX App</h1>
@@ -22,13 +30,16 @@ function App() {
               <Form />
             </Route>
             <Route path="/login">
-              <Login currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+              <Login
+                currentUser={currentUser}
+                setCurrentUser={setCurrentUser}
+              />
             </Route>
             <Route exact path="/">
-              <Home currentUser={currentUser}/>
+              <Home currentUser={currentUser} />
             </Route>
             <Route exact path="/tickets">
-              <Tickets />
+              <TicketsList tickets={tickets} setTickets={setTickets} />
             </Route>
             <Route exact path="/newtix">
               <NewTicket />
