@@ -39,7 +39,7 @@ export default function validateInfo(values) {
     var pattern = new RegExp(/^[0-9\b]+$/);
     if (!pattern.test(values.phoneNumber)) {
       errors.phoneNumber = "Please enter only numbers.";
-    } else if (values.phoneNumber.length != 10) {
+    } else if (values.phoneNumber.length !== 10) {
       errors.phoneNumber = "Please enter valid phone number.";
     }
   }

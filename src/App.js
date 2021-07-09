@@ -11,6 +11,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [tickets, setTickets] = useState([]);
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:3000/tickets")
@@ -19,6 +20,47 @@ function App() {
         setTickets(ticketsArray);
       });
   }, []);
+  useEffect(() => {
+    fetch("http://localhost:3000/users")
+      .then((r) => r.json())
+      .then((usersArray) => {
+        setUsers(usersArray);
+      });
+  }, []);
+
+let isAgentList = users.filter((user) => {
+if(user.is_agent === true){
+  return "true"
+}
+})
+
+console.log("user list", users)
+console.log("agent list", isAgentList)
+
+  // function updateReview(updatedReview) {
+  //   const updatedReviewList = reviews.map((review) => {
+  //     if (review.id === updatedReview.id) {
+  //       return updatedReview;
+  //     } else {
+  //       return review;
+  //     }
+  //   });
+
+  //   setReviews(updatedReviewList);
+  // }
+
+
+  // let filteredProducts = products.filter((product) => {
+
+  //   return product.name.toLowerCase().includes(productSearch.toLowerCase()) ||
+  //   product.brand.toLowerCase().includes(productSearch.toLowerCase()) ||
+  //   product.type_of.toLowerCase().includes(productSearch.toLowerCase())
+  // });
+
+  // if (filter !== "all") {
+  //   filteredProducts = filteredProducts.filter(product => product.cost_range === filter)
+  // }
+
 
   return (
     <Router>
@@ -43,7 +85,7 @@ function App() {
               <TicketsList tickets={tickets} setTickets={setTickets} />
             </Route>
             <Route exact path="/newtix">
-              <NewTicket />
+              <NewTicket users={users} isAgentList={isAgentList}/>
             </Route>
           </Switch>
         </header>

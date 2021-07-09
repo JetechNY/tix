@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect, useRef } from "react";
 import "./Form.css";
 
-const NewTicket = ({ submitForm }) => {
+const NewTicket = ({ submitForm, users, isAgentList }) => {
   const [values, setValues] = useState({
     name: "",
     description: "",
@@ -66,30 +66,37 @@ const NewTicket = ({ submitForm }) => {
             <label htmlFor="Assigned To" className="form-label">
               Assigned To
             </label>
+            <select>
+              <option value="Select a Agent"> Select a Agent
+                </option>
+                {isAgentList.map((agent)=> <option> {agent.firstname} </option>)}
+            </select>
           </div>
           <br></br>
 
-          <div>
-            <div class="container-fluid">
-              <div class="dropdown">
-                <button
-                  type="button"
-                  className="btn btn-default dropdown-toggle"
-                  data-toggle="dropdown"
-                >
-                  Category<div class="caret"> </div>
-                </button>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a href="">IT</a>
-                  </li>
-                  <li>
-                    <a href="">Computer</a>
-                  </li>
-                </ul>
-              </div>
+
+          <div class="container-fluid">
+            <div class="dropdown">
+            <label htmlFor="Category" className="form-label">
+            Category
+            </label>
+              <button
+                type="button"
+                className="btn btn-default dropdown-toggle"
+                data-toggle="dropdown">
+                <div class="caret"> </div>
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="">IT</a>
+                </li>
+                <li>
+                  <a href="">Computer</a>
+                </li>
+              </ul>
             </div>
           </div>
+
 
           <br></br>
           <div>
