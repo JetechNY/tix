@@ -7,7 +7,6 @@ import TicketsList from "./import/TicketsList";
 import NewTicket from "./import/NewTicket";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [tickets, setTickets] = useState([]);
@@ -28,14 +27,12 @@ function App() {
       });
   }, []);
 
-let isAgentList = users.filter((user) => {
-if(user.is_agent === true){
-  return "true"
-}
-})
+  const isAgentList = users.filter((user) => {
+    return user.is_agent === true;
+  });
 
-console.log("user list", users)
-console.log("agent list", isAgentList)
+  console.log("user list", users);
+  console.log("agent list", isAgentList);
 
   // function updateReview(updatedReview) {
   //   const updatedReviewList = reviews.map((review) => {
@@ -49,7 +46,6 @@ console.log("agent list", isAgentList)
   //   setReviews(updatedReviewList);
   // }
 
-
   // let filteredProducts = products.filter((product) => {
 
   //   return product.name.toLowerCase().includes(productSearch.toLowerCase()) ||
@@ -60,7 +56,6 @@ console.log("agent list", isAgentList)
   // if (filter !== "all") {
   //   filteredProducts = filteredProducts.filter(product => product.cost_range === filter)
   // }
-
 
   return (
     <Router>
@@ -85,7 +80,7 @@ console.log("agent list", isAgentList)
               <TicketsList tickets={tickets} setTickets={setTickets} />
             </Route>
             <Route exact path="/newtix">
-              <NewTicket users={users} isAgentList={isAgentList}/>
+              <NewTicket isAgentList={isAgentList} />
             </Route>
           </Switch>
         </header>
